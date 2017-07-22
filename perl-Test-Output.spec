@@ -4,12 +4,12 @@
 #
 Name     : perl-Test-Output
 Version  : 1.031
-Release  : 12
+Release  : 13
 URL      : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
 Summary  : 'Utilities to test STDOUT and STDERR messages.'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0-Perl Artistic-2.0
 Requires: perl-Test-Output-doc
 BuildRequires : perl(Capture::Tiny)
 
@@ -33,6 +33,9 @@ doc components for the perl-Test-Output package.
 %setup -q -n Test-Output-1.031
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
@@ -46,7 +49,7 @@ fi
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make TEST_VERBOSE=1 test
 
 %install
@@ -63,7 +66,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/Test/Output.pm
+/usr/lib/perl5/site_perl/5.26.0/Test/Output.pm
 
 %files doc
 %defattr(-,root,root,-)
