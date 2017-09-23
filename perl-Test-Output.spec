@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Output
 Version  : 1.031
-Release  : 15
+Release  : 16
 URL      : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
 Summary  : 'Utilities to test STDOUT and STDERR messages.'
@@ -44,6 +44,13 @@ else
 %{__perl} Build.PL
 ./Build
 fi
+
+%check
+export LANG=C
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
+make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
