@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Output
 Version  : 1.031
-Release  : 14
+Release  : 15
 URL      : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
 Summary  : 'Utilities to test STDOUT and STDERR messages.'
@@ -45,13 +45,6 @@ else
 ./Build
 fi
 
-%check
-export LANG=C
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-make TEST_VERBOSE=1 test
-
 %install
 rm -rf %{buildroot}
 if test -f Makefile.PL; then
@@ -66,7 +59,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.0/Test/Output.pm
+/usr/lib/perl5/site_perl/5.26.1/Test/Output.pm
 
 %files doc
 %defattr(-,root,root,-)
