@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Output
 Version  : 1.031
-Release  : 19
+Release  : 20
 URL      : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
 Summary  : 'Utilities to test STDOUT and STDERR messages.'
@@ -78,7 +78,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/Test/Output.pm
+/usr/lib/perl5/vendor_perl/5.28.0/Test/Output.pm
 
 %files dev
 %defattr(-,root,root,-)
