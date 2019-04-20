@@ -4,10 +4,10 @@
 #
 Name     : perl-Test-Output
 Version  : 1.031
-Release  : 26
+Release  : 27
 URL      : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
-Summary  : 'Utilities to test STDOUT and STDERR messages.'
+Summary  : Utilities to test STDOUT and STDERR messages
 Group    : Development/Tools
 License  : Artistic-1.0-Perl Artistic-2.0
 Requires: perl-Test-Output-license = %{version}-%{release}
@@ -26,6 +26,7 @@ for any Perl module.
 Summary: dev components for the perl-Test-Output package.
 Group: Development
 Provides: perl-Test-Output-devel = %{version}-%{release}
+Requires: perl-Test-Output = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-Output package.
