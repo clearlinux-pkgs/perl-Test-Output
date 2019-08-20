@@ -4,13 +4,14 @@
 #
 Name     : perl-Test-Output
 Version  : 1.031
-Release  : 28
+Release  : 29
 URL      : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
-Summary  : Utilities to test STDOUT and STDERR messages
+Summary  : 'Utilities to test STDOUT and STDERR messages.'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl Artistic-2.0
 Requires: perl-Test-Output-license = %{version}-%{release}
+Requires: Capture::Tiny
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Capture::Tiny)
 
@@ -47,7 +48,7 @@ license components for the perl-Test-Output package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -57,7 +58,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
