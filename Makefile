@@ -1,5 +1,5 @@
 PKG_NAME := perl-Test-Output
-URL = http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Output-1.031.tar.gz
+URL = https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Test-Output-1.032.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

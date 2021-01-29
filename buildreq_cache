@@ -1,2 +1,6 @@
-1.031
+1.032
 perl(Capture::Tiny)
+perl(Data::OptList)
+perl(Params::Util)
+perl(Sub::Exporter)
+perl(Sub::Install)
