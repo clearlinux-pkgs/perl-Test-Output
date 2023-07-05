@@ -4,14 +4,13 @@
 # Using build pattern: cpan
 #
 Name     : perl-Test-Output
-Version  : 1.033
-Release  : 46
-URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Test-Output-1.033.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Test-Output-1.033.tar.gz
+Version  : 1.034
+Release  : 47
+URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Test-Output-1.034.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Test-Output-1.034.tar.gz
 Summary  : 'Utilities to test STDOUT and STDERR messages.'
 Group    : Development/Tools
 License  : Artistic-2.0
-Requires: perl-Test-Output-license = %{version}-%{release}
 Requires: perl-Test-Output-perl = %{version}-%{release}
 Requires: perl(Capture::Tiny)
 Requires: perl(Test::Builder)
@@ -36,14 +35,6 @@ Requires: perl-Test-Output = %{version}-%{release}
 dev components for the perl-Test-Output package.
 
 
-%package license
-Summary: license components for the perl-Test-Output package.
-Group: Default
-
-%description license
-license components for the perl-Test-Output package.
-
-
 %package perl
 Summary: perl components for the perl-Test-Output package.
 Group: Default
@@ -54,8 +45,11 @@ perl components for the perl-Test-Output package.
 
 
 %prep
-%setup -q -n Test-Output-1.033
-cd %{_builddir}/Test-Output-1.033
+%setup -q -n Test-Output-1.034
+cd %{_builddir}/Test-Output-1.034
+pushd ..
+cp -a Test-Output-1.034 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -79,8 +73,6 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/perl-Test-Output
-cp %{_builddir}/Test-Output-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-Test-Output/46ff8d6b70f1daa7d3b90d4d9f497b4c0bca0b67 || :
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -90,6 +82,7 @@ find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
 find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %{_fixperms} %{buildroot}/*
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -97,10 +90,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Test::Output.3
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Test-Output/46ff8d6b70f1daa7d3b90d4d9f497b4c0bca0b67
 
 %files perl
 %defattr(-,root,root,-)
