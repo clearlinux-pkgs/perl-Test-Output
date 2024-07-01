@@ -5,7 +5,7 @@
 #
 Name     : perl-Test-Output
 Version  : 1.034
-Release  : 49
+Release  : 50
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Test-Output-1.034.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Test-Output-1.034.tar.gz
 Summary  : 'Utilities to test STDOUT and STDERR messages.'
